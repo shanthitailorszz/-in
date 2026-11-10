@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shanthitailorszz.github.io/-in/sitemap.xml
