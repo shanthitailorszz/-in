@@ -41,17 +41,6 @@
     $("#current-year").textContent = String(new Date().getFullYear());
   }
 
-  function addStructuredData() {
-    const data = {
-      "@context": "https://schema.org", "@type": "ClothingStore", name: config.name, alternateName: config.alternateName,
-      description: "Tailoring and alteration services in Thanjavur, Tamil Nadu.", url: config.siteUrl, image: config.image,
-      telephone: config.telephone, email: config.email, address: { "@type": "PostalAddress", ...config.address }, sameAs: [config.instagram],
-      areaServed: { "@type": "City", name: config.address.addressLocality },
-      hasOfferCatalog: { "@type": "OfferCatalog", name: "Tailoring services", itemListElement: config.services.map((service) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: service.name, description: service.description } })) }
-    };
-    const script = document.createElement("script"); script.type = "application/ld+json"; script.textContent = JSON.stringify(data); document.head.append(script);
-  }
-
   function initialiseNavigation() {
     const toggle = $(".menu-toggle"), nav = $(".main-nav");
     if (!toggle || !nav) return;
@@ -71,5 +60,5 @@
       status.textContent = "Opening WhatsApp with your enquiry…"; status.classList.add("is-success"); window.open(whatsappUrl(enquiry), "_blank", "noopener"); form.reset();
     });
   }
-  buildServices(); renderBusinessDetails(); addStructuredData(); initialiseNavigation(); initialiseForm();
+  buildServices(); renderBusinessDetails(); initialiseNavigation(); initialiseForm();
 })();
